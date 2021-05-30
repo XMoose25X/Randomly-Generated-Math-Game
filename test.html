@@ -1,0 +1,65 @@
+<script src="./js/tinytest.js"></script>
+<script src="./js/mathgame.js"></script>
+<script>
+tests({
+	'random integer is between min and max': function() {
+		function testRange(min, max) {
+			const randomInt = getRandomInt(min, max);
+			return min <= randomInt && max >= randomInt && Number.isInteger(randomInt);
+		}
+		eq(true, testRange(0, 1));
+		eq(true, testRange(0, 0));
+		eq(true, testRange(-5, 100));
+		eq(true, testRange(50, 99));
+		eq(true, testRange(3, 6));
+		eq(true, testRange(7, 1000));
+		eq(true, testRange(1, 23456775));
+	},
+
+	'calculate adds': function() {
+		eq(5, calculate(2, '+', 3));
+		eq(0, calculate(30, '+', -30));
+		eq(24, calculate(7, '+', 17));
+		eq(107, calculate(56, '+', 51));
+		eq(15, calculate(13, '+', 2));
+		eq(22, calculate(25, '+', -3));
+		eq(-76, calculate(-76, '+', 0));
+	},
+
+	'calculate subtracts': function() {
+		eq(10, calculate(12, '-', 2));
+		eq(0, calculate(23, '-', 23));
+		eq(3, calculate(7, '-', 4));
+		eq(57, calculate(50, '-', -7));
+		eq(30, calculate(13, '-', -17));
+		eq(12, calculate(25, '-', 13));
+		eq(-4, calculate(-6, '-', -2));
+	},
+
+	'calculate multiplies': function() {
+		eq(10, calculate(5, '*', 2));
+		eq(529, calculate(23, '*', 23));
+		eq(0, calculate(100, '*', 0));
+		eq(100, calculate(50, '*', 2));
+		eq(1, calculate(1, '*', 1));
+		eq(999, calculate(333, '*', 3));
+		eq(24, calculate(12, '*', 2));
+	},
+
+	'calculate divides': function() {
+		eq(3, calculate(12, '/', 4));
+		eq(4, calculate(24, '/', 6));
+		eq(1, calculate(8, '/', 8));
+		eq(2, calculate(100, '/', 50));
+		eq(Infinity, calculate(1, '/', 0));
+		eq(5, calculate(25, '/', 5));
+		eq(12, calculate(144, '/', 12));
+	},
+
+	'calculate error handling': function() {
+		eq(null, calculate(12, 'b', 4));
+		eq(null, calculate(24, 'a', 6));
+		eq(null, calculate(8, 5, 8));
+	},
+});
+</script>
