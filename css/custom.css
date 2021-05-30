@@ -68,15 +68,14 @@ body{
 .help:active{
     background-color: #c33232 !important;
 }
-
 .info:active{
     background-color: #87e2ee !important;
 }
 .keypad{
+    width: 11vh;
     cursor: default;
     color: #000000;
     font-size: 7vh;
-    width: 11vh;
     height:7vh;
     text-align: center;
     line-height: 6.5vh;
@@ -90,6 +89,18 @@ body{
     -webkit-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.75);
     box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.75);
+}
+@media only screen and (max-width: 576px) {
+    .keypad {
+        width: 9vh;
+        font-size: 5vh;
+    }
+    .help{
+        font-size: 3vh !important;
+    }
+    .info{
+        font-size: 3vh !important;
+    }
 }
 .keypad:hover{
     background-color: #ececec; /*#e9f288;*/
